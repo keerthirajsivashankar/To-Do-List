@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Productivity App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Productivity Hub</h1>
+            <div class="theme-toggle">
+                <span class="light-mode-icon">☀️</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="dark-mode-icon">🌙</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="grid-container">
+                <!-- Task Management Section -->
+                <section class="task-section glass-card">
+                    <h2>Task Management</h2>
+                    <form id="task-form">
+                        <div class="form-group">
+                            <input type="text" id="task-input" placeholder="Add a new task..." required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select id="category-select">
+                                    <option value="Work">Work</option>
+                                    <option value="Personal">Personal</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Goals">Goals</option>
+                                    <option value="Learning">Learning</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select id="priority-select">
+                                    <option value="High">High Priority</option>
+                                    <option value="Medium" selected>Medium Priority</option>
+                                    <option value="Low">Low Priority</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="add-btn">Add Task</button>
+                        </div>
+                    </form>
+                    
+                    <div class="task-filters">
+                        <div class="search-container">
+                            <input type="text" id="search-input" placeholder="Search tasks...">
+                            <button id="search-btn">🔍</button>
+                        </div>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" id="show-completed" checked>
+                                Show Completed
+                            </label>
+                            <button id="clear-all" class="clear-btn">Clear All</button>
+                        </div>
+                    </div>
+
+                    <ul id="task-list"></ul>
+                </section>
+
+                <div class="right-panel">
+                    <!-- Analytics Dashboard Section -->
+                    <section class="analytics-section glass-card">
+                        <h2>Analytics Dashboard</h2>
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-label">Total Tasks</div>
+                                <div class="stat-value" id="total-tasks">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Completed</div>
+                                <div class="stat-value" id="completed-tasks">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Pending</div>
+                                <div class="stat-value" id="pending-tasks">0</div>
+                            </div>
+                        </div>
+
+                        <div class="progress-container">
+                            <div class="progress-label">Completion Rate</div>
+                            <div class="progress-bar-container">
+                                <div id="progress-bar" class="progress-bar"></div>
+                                <div id="progress-percent" class="progress-percent">0%</div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <div class="chart-label">Priority Breakdown</div>
+                            <div class="priority-chart">
+                                <div class="chart-row">
+                                    <div class="chart-label">High</div>
+                                    <div class="chart-bar-container">
+                                        <div id="high-bar" class="chart-bar high-priority"></div>
+                                        <span id="high-count" class="chart-count">0</span>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-label">Medium</div>
+                                    <div class="chart-bar-container">
+                                        <div id="medium-bar" class="chart-bar medium-priority"></div>
+                                        <span id="medium-count" class="chart-count">0</span>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-label">Low</div>
+                                    <div class="chart-bar-container">
+                                        <div id="low-bar" class="chart-bar low-priority"></div>
+                                        <span id="low-count" class="chart-count">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Pomodoro Timer Section -->
+                    <section class="pomodoro-section glass-card">
+                        <h2>Pomodoro Timer</h2>
+                        <div class="timer-display" id="timer-display">25:00</div>
+                        <div class="timer-controls">
+                            <button id="start-timer" class="timer-btn">Start</button>
+                            <button id="reset-timer" class="timer-btn">Reset</button>
+                        </div>
+                        <div class="pomodoro-stats">
+                            <div class="pomodoro-count">
+                                <span>Sessions Completed: </span>
+                                <span id="pomodoro-count">0</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <div id="notification" class="notification">
+            <div class="notification-content">
+                <p>Pomodoro session completed!</p>
+                <button id="close-notification">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
